@@ -1,0 +1,4 @@
+.left{
+    display: flex;
+    flex-direction: row; /* Default value, can be omitted */
+}

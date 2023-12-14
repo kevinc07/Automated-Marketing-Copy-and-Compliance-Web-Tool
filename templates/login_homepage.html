@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/introjs.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/intro.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>台北富邦銀行-行銷文案</title>
+</head>
+<body>
+    <div class="imtoolbar">
+        <h1>
+            <span class="greeting" style="margin-left: 40px;">
+                {% if session['logged_in'] %}
+                {{ session['username'] }}您好
+                {% endif %}
+            </span>
+        </h1>
+        <div class="logout-button-container">
+            {% if session['logged_in'] %}
+            <a id="logoutButton" style="display: flex; margin-left: 10px; align-items: center; justify-content: center; cursor: pointer;" title="登出">
+                <img src="/static/img/logout.svg" class="impic">
+            </a>
+            {% endif %}
+        </div>
+        <div class="imsmalldiv">
+            <button id="jump-page" class="btn-new-project">法遵助手</button>
+            <button id="show-table" class="btn-new-project">查看總表</button>
+            <!-- 新建專案按鈕 -->
+            <button id="addProject" class="btn-new-project">+ 新建專案</button>
+        </div>
+    </div>
+
+    
+    <!-- Panes for Todo, In Progress, and Done -->
+    <div class="panes-center">
+        <div class="panes">
+            <div class="pane" id="edit" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color: #fbe5e5; color: #e6555a;">
+                <h3>📝 待編輯</h3>
+                {% for task in edit_tasks %}
+                <div id="task{{task[0]}}" class="task-card" draggable="true" ondragstart="drag(event)" onclick="handleTaskClick(this)" data-task-id="{{task[0]}}">
+                    <span class="task-content">{{task[1]}}</span>
+                    <div class="clickoptions">
+                        <div class="more-options"></div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="editTask(this, event)">編輯</a>
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="deleteTask(this, event)">刪除</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- List of tasks in Todo -->
+            </div>
+            <div class="pane" id="vetting" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color: #f6f2de; color: #f4c700;">
+                <h3>⏳ 主管審閱中</h3>
+                {% for task in vetting_tasks %}
+                <div id="task{{task[0]}}" class="task-card" draggable="true" ondragstart="drag(event)" onclick="handleTaskClick(this)" data-task-id="{{task[0]}}">
+                    <span class="task-content">{{task[1]}}</span>
+                    <div class="clickoptions">
+                        <div class="more-options"></div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="editTask(this, event)">編輯</a>
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="deleteTask(this, event)">刪除</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- List of tasks in In Progress -->
+            </div>
+            <div class="pane" id="checklist" ondrop="drop(event)" ondragover="allowDrop(event)"  style="background-color: #e6f1f6; color: #6a9cb9;">
+                <h3>🔍 法遵審核中</h3>
+                {% for task in checklist_tasks %}
+                <div id="task{{task[0]}}" class="task-card" draggable="true" ondragstart="drag(event)" onclick="handleTaskClick(this)" data-task-id="{{task[0]}}">
+                    <span class="task-content">{{task[1]}}</span>
+                    <div class="clickoptions">
+                        <div class="more-options"></div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="editTask(this, event)">編輯</a>
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="deleteTask(this, event)">刪除</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- List of tasks in Done -->
+            </div>
+            <div class="pane" id="posting" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color: #e5f3e5; color: #5EAA5F;">
+                <h3>✅ 已公告</h3>
+                {% for task in posting_tasks %}
+                <div id="task{{task[0]}}" class="task-card" draggable="true" ondragstart="drag(event)" onclick="handleTaskClick(this)" data-task-id="{{task[0]}}">
+                    <span class="task-content">{{task[1]}}</span>
+                    <div class="clickoptions">
+                        <div class="more-options"></div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="editTask(this, event)">編輯</a>
+                        <a href="#" class="dropdown-item" data-task-id="{{task[0]}}" onclick="deleteTask(this, event)">刪除</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- List of tasks in Done -->
+            </div>
+        </div>
+        <!-- Modal for editing taskname (only one needed) -->
+        <div id="editTaskModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <input type="text" id="newTaskName" placeholder="Enter new task name">
+                <button onclick="submitEdit()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tasks-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>任務名稱</th>
+                    <th>狀態</th>
+                    <th>編輯時間</th>
+                    <th>截止日期</th>
+                    <th>執行人</th>
+                </tr>
+            </thead>
+            <tbody id="tasks-tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    {% if not is_logged_in %}
+    <div class="login-panel" data-intro="請先登入/註冊!" data-step="1">
+        <!-- 登入表單 -->
+        <div class="login-form">
+            <p>登入資訊</p>
+            <input id="username" type="text" placeholder="Username" value="{{ request.form['username'] }}">
+            <input id="password" type="password" placeholder="Password">
+            <div class="action-buttons">
+                <button id="login" class="imbtn">Login</button>
+                <a href="#" id="show-register" style="font-weight: bold; color: rgb(158, 155, 155); text-decoration: none;">註冊</a>
+            </div>
+        </div>
+    
+        <!-- 註冊表單 -->
+        <div class="register-form" style="display: none;">
+            <p>註冊資訊</p>
+            <input id="user-name" type="text" placeholder="Username">
+            <input id="pass-word" type="password" placeholder="Password">
+            <input id="confirm-password" type="password" placeholder="Confirm Password">
+            <div class="action-buttons">
+                <button id="register" class="imbtn">Register</button>
+                <a href="#" id="show-login" style="font-weight: bold; color: rgb(158, 155, 155); text-decoration: none;">登入</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='login_homepage.js') }}"></script>
+</body>
+</html>

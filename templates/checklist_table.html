@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta chartset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/checklist_table.css') }}">
+        <title>台北富邦銀行-Paralegal</title>
+</head>
+<body>
+
+    <h1>廣宣裁決表 <img src="{{ url_for('static', filename='img/fubon_logo.jpg') }}" alt="Your Image" style="float: right;"></h1>
+    <p>單位: ___________部(處)/___________科  &nbsp; &nbsp; 專案名稱:</p>
+    <p>預計刊登時間: <span class="spacing"></span>刊登項目:</p>
+
+    <br/>
+
+    <table style="width: 100%;">
+        <colgroup>
+            <col style="width: 60%;">
+            <col style="width: 40%;">
+        </colgroup>
+
+        <tr>
+            <td >需求單位自評項目</td>
+            <td >自評結果</td>
+        </tr>
+        
+
+        {{ html_rows|safe }}
+    </table>
+    <!--<button id="printButton">列印</button>--->
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='checklist_table.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>台北富邦銀行-行銷文案</title>
+</head>
+<body>
+
+    <!---toolbar標題-->
+    <div class="imtoolbar">
+        <h1>行&nbsp;&nbsp;銷&nbsp;&nbsp;產&nbsp;&nbsp;品&nbsp;&nbsp;資&nbsp;&nbsp;訊</h1>
+    </div>
+
+    <!---寫展開式選單-->
+    <div class="wraper">
+		<ul class="cart">
+			<li>
+				<a href="#">客&nbsp;&nbsp;群</a>
+				<ul>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">目標客群<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container">
+                                <input id="targetAudience" type="text" class="iminput" required>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty" style="display: none;">
+                            <div class="link-container"><a href="#">年齡區間</a></div>
+                            <div class="input-container" style="display: flex; height: 20px;">
+                                <input id="age1" type="text" style="width: 75px; height: 20px;" placeholder="歲" class="iminput">
+                                <p style="margin: auto; margin-left: 10px; margin-right: 10px;">至</p>
+                                <input id="age2" type="text" style="width: 75px; height: 20px;" placeholder="歲" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+					<li>
+                        <div class="impretty" style="display: none;">
+                            <div class="link-container"><a href="#">年收入區間</a></div>
+                            <div class="input-container" style="display: flex; height: 20px;">
+                                <input id="salary1" type="text" style="width: 75px; height: 20px;" placeholder="新台幣(萬)" class="iminput">
+                                <p style="margin: auto; margin-left: 10px; margin-right: 10px;">至</p>
+                                <input id="salary2" type="text" style="width: 75px; height: 20px;" placeholder="新台幣(萬)" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty" style="display: none;">
+                            <div class="link-container"><a href="#">性別</a></div>
+                            <div class="input-container" style="display: flex; height: 20px;">
+                                <div style="display: flex; height: 20px; margin-right: 40px;">
+                                    <input id="whateverForGender" name="gender" type="radio" value="不限" checked>
+                                    <label for="whateverForGender">不限</label>
+                                    <input id="male" name="gender" type="radio" value="男生">
+                                    <label for="male">男生</label>
+                                    <input id="female" name="gender" type="radio" value="女生">
+                                    <label for="female">女生</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty" style="display: none;">
+                            <div class="link-container"><a href="#">婚姻</a></div>
+                            <div class="input-container" style="display: flex; height: 20px;">
+                                <div style="display: flex; height: 20px; margin-right: 40px;">
+                                    <input id="whateverForMarriage" name="marriage" type="radio" value="不限" checked >
+                                    <label for="whateverForMarriage">不限</label>
+                                    <input id="married" name="marriage" type="radio" value="已婚">
+                                    <label for="married">已婚</label>
+                                    <input id="single" name="marriage" type="radio" value="未婚">
+                                    <label for="single">未婚</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty" style="display: none;">
+                            <div class="link-container"><a href="#">是否有小孩</a></div>
+                            <div class="input-container" style="display: flex; height: 20px;">
+                                <div style="display: flex; height: 20px; margin-right: 72px;">
+                                    <input id="whateverForChild" name="child" type="radio" value="不限" checked>
+                                    <label for="whateverForChild">不限</label>
+                                    <input id="yesForChild" name="child" type="radio" value="是">
+                                    <label for="yesForChild">是</label>
+                                    <input id="noForChild" name="child" type="radio" value="否">
+                                    <label for="noForChild">否</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">空閒時間運用<span style="font-size: 20px;"></span></a></div>
+                            <div class="input-container">
+                                <input id="spaceTime" type="text" class="iminput">
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">理財風險承受度<span style="font-size: 20px;"></span></a></div>
+                            <div class="input-container">
+                                <select id="riskOverwhelming" style="width: 250px;" class="iminput">
+                                    <option disabled selected>理財風險承受度</option>
+                                    <option value="不能承受投資損失">不能承受投資損失</option>
+                                    <option value="投資損失在5％以內的可以接受">投資損失在5％以內的可以接受</option>
+                                    <option value="追求10%以上的獲利，願意接受10％以上的投資損失">追求10%以上的獲利，願意接受10％以上的投資損失</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">社交媒體參與度<span style="font-size: 20px;"></span></a></div>
+                            <div class="input-container">
+                                <select id="socialParticipant" style="width: 250px; height: 25px;" class="iminput">
+                                    <option disabled selected>社交媒體參與度</option>
+                                    <option value="常看社群的投資經驗">常看社群的投資經驗</option>
+                                    <option value="喜歡在社群分享自己的投資經驗">喜歡在社群分享自己的投資經驗</option>
+                                    <option value="只聽新朋好友的投資想法">只聽親朋好友的投資想法</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">客群特徵描述(GPT)<span style="font-size: 20px;"></span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="otherFeature" rows="10" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">主要支出項目(GPT)<span style="font-size: 20px;"></span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="maincheck" rows="10" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">客群關鍵字(GPT)<span style="font-size: 20px;"></span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="audiencekey" rows="10" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="margin-top: 20px;">
+                        <div style="text-align: center;">
+                            <button id="btnSaveAudience">存成temp</button>
+                            <button id="btninputAudience">匯入temp</button>
+                        </div>
+                    </li>
+				</ul>
+			</li>
+            <br>
+			<li>
+				<a href="#">產&nbsp;&nbsp;品</a>
+				<ul>
+					<li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品名稱<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="productName" type="text" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品類型<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <select id="productType" style="width: 250px; height: 25px;" class="iminput">
+                                    <option disabled selected>產品類型</option>
+                                    <option value="credit-card">信用卡</option>
+                                    <option value="loan">貸款</option>
+                                    <option value="investment">投資</option>
+                                    <option value="trustContainer">信託</option>
+                                    <option value="ETF">外債ETF</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input id="producttypetext" type="text" class="input" name="producttypetext" style="border: none; margin-left: 250px;" contenteditable="true">
+                    </li>
+					<li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品特性<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="productFeature" type="text" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品形象<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="productImage" type="text" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">優惠方案<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="productDiscount" rows="4" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">活動辦法(理念)<span style="color: red; font-size: 20px;">*</span></a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="activityMethod" rows="4" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品異於同質性優勢</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="productAdvantage" rows="4" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品異於同質性劣勢</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="productDisadvantage" rows="4" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">產品故事性</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="productStory" rows="4" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">是否有活動截止日</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="deadline" type="date" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">是否有售後服務</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="afterservice" type="text" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">購買方式</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <textarea id="productPurchase" rows="4" cols="30" class="imanotherinput"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">購買條件</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="purchaseRule" type="text" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">是否有數量限制</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input id="numlimit" type="text" class="iminput">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="impretty">
+                            <div class="link-container"><a href="#">投資警語</a></div>
+                            <div class="input-container" style="display: flex;">
+                                <input type="file" id="fileUpload" onchange="onLoadFile()" accept=".txt" style="width: 200px;">
+                            </div>
+                        </div>
+                    </li>
+                    <li style="margin-top: 20px;">
+                        <div style="text-align: center;">
+                            <button id="btnSaveProducts">存成temp</button>
+                            <button id="btninputProducts">匯入temp</button>
+                        </div>
+                    </li>
+				</ul>
+			</li>
+		</ul>
+    </div>
+
+    <!---送出btn-->
+    <div style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
+        <button id="btnSubmitAll" class="imtheBigBtn">SUBMIT</button>
+    </div>
+
+
+    <!---客群匯入-->
+    <div id="AudienceForm" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form style="text-align: center;">
+                <label for="audienceTypeSelect">選擇客群類型:</label>
+                <select class="imselect" id="audienceTypeSelect">
+                    <option value="sample">範例客群</option>
+                    <option value="user">我的客群</option>
+                </select>
+                <table id="audienceTable">
+                    <thead>
+                        <tr>
+                          <th style="width: 40px;">勾選</th>
+                          <th style="width: 180px;">目標客群</th>
+                          <th style="width: 120px;">角色</th>
+                          <th style="width: 100px;">空閒時間運用</th>
+                          <th style="width: 40px;">編輯</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          
+                        </tr>
+                        <tr>
+                            
+                        </tr>
+                      </tbody>
+                </table>
+                <button id="inputAudience" type="button" style="margin-top: 20px;">input</button>
+            </form>
+        </div>
+    </div>
+
+    <!---產品匯入-->
+    <div id="ProductsForm" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form style="text-align: center;">
+                <table id="productsTable">
+                    <thead>
+                        <tr>
+                          <th style="width: 40px;">勾選</th>
+                          <th style="width: 180px;">產品名稱</th>
+                          <th style="width: 120px;">產品類型</th>
+                          <th style="width: 100px;">產品形象</th>
+                          <th style="width: 40px;">編輯</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                        </tr>
+                      </tbody>
+                  </table>
+              <button id="inputProducts" type="button" style="margin-top: 20px;">input</button>
+            </form>
+          </div>
+    </div>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='marketing_home.js') }}"></script>
+</body>
+</html>

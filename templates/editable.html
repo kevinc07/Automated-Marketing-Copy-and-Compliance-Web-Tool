@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='css/editable.css') }}">
+    <title>台北富邦銀行-行銷文案</title>
+</head>
+<body>
+    <!---toolbar標題-->
+    <div class="imtoolbar">
+        <h1>文&nbsp;&nbsp;案&nbsp;&nbsp;管&nbsp;&nbsp;理</h1>
+    </div>
+    <div class="container">
+        <div class="inner">
+            <label for="fileName">文案名稱:</label>
+            <input type="text" id="fileName">
+        </div>
+        <div class="inner">
+            <label for="imdate">日期:</label>
+            <input type="type" id="imdate" disabled>
+        </div>
+        <div class="inner">
+            <label for="imaudience">客群:
+                <a id="product_edit" style="cursor: pointer;">
+                    <img src="/static/img/edit.svg">
+                </a>
+            </label>
+            <input type="type" id="imaudience" disabled>
+            <div class="tooltip-container">
+                <span class="tooltip">您似乎尚未新增客群資訊...</span>
+            </div>
+        </div>
+        <div class="inner">
+            <label for="improduct">產品:
+                <a id="product_edit" style="cursor: pointer;">
+                    <img src="/static/img/edit.svg">
+                </a>
+            </label>
+            <input type="type" id="improduct" disabled>
+            <div class="tooltip-container">
+                <span class="tooltip">您似乎尚未新增產品資訊...</span>
+            </div>
+        </div>
+        <div class="inner">
+            <label for="imcustomvalue">風格:
+                <a id="product_edit" style="cursor: pointer;">
+                    <img src="/static/img/edit.svg">
+                </a>
+            </label>
+            <input type="type" id="imcustomvalue" disabled>
+            <div class="tooltip-container">
+                <span class="tooltip">您似乎尚未新增風格資訊...</span>
+            </div>
+        </div>
+        <div class="inner">
+            <label for="imtimess">版本:</label>
+            <select id="imtimess"></select>
+        </div>
+        <div class="inner" id="stepsContainer">
+            <label>文案內容:</label>
+        </div>
+        <div class="inner">
+            <label for="imposting">送審:</label>
+            <textarea id="imposting" class="custom-textarea" style="height: 120px;" placeholder="說明"></textarea>       
+        </div>
+        <div class="inner">
+            <label for="imdeadline">截止日(需點到右方日曆圖示):</label>
+            <input type="date" id="imdeadline"></input>       
+        </div>
+        <div style="padding: 10px; display: flex;">
+            <button id="save">SAVE</button>
+            <button id="goOnNextPage">SUBMIT</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='editable.js') }}"></script>
+</body>
+</html>

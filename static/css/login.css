@@ -1,0 +1,482 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 10px; /* Adds a little space around the content */
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column; /* This will make your content go top-to-bottom */
+    align-items: center;
+}
+
+.imtoolbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	font-size: 20px;
+	background: linear-gradient(150deg, #323F6B,  #78a7fe);
+	color: #FFFFFF;
+	text-align: center;
+	padding: 10px;
+    display: flex; /* 新增 */
+    justify-content: space-between; /* 新增 */
+    align-items: center; /* 新增 */
+    z-index: 99;
+}
+
+.imsmalldiv{
+    display: flex; /* 新增 */
+    width: 450px;
+}
+
+.greeting {
+    font-size: 1.5rem; /* 設置大小 */
+}
+
+
+.logout-button-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* 将 "登出" 按钮推到右边 */
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-left: 20px; /* 添加一些间距以分开 "登出" 按钮和 "greeting" 文字 */
+}
+
+.top-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 70%; /* Makes sure it spans the entire width of the viewport */
+    padding: 10px 20px;
+    position: fixed; /* This makes sure your top panel stays at the top */
+    background-color: #f5f5f5; /* Makes the background the same as your body's background */
+    z-index: 10; /* Makes sure it appears over other content */
+}
+
+.btn-new-project {
+    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: #323f6b00;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin-left: 20px; /* 新增 */
+}
+
+
+.btn-new-project:hover{
+    background-color: rgb(255, 255, 255);
+    color: #323f6b;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.panes-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px; /* Pushes it below the fixed top panel */
+    width: 1000px;
+}
+
+.login-panel {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) translateX(-90%);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    background-color: rgb(218, 239, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); /* 初始化陰影為透明 */
+}
+
+/* 當面板完全顯示時，增加陰影效果 */
+.login-panel.active {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 基本樣式 */
+a#show-register {
+    font-weight: bold;
+    color: rgb(158, 155, 155);
+    text-decoration: none;
+    border-radius: 5px; /* 圓角效果 */
+    transition: background-color 0.3s, color 0.3s; /* 這將為顏色變化添加一個平滑的過渡效果 */
+
+}
+
+/* 滑鼠懸停時的樣式 */
+a#show-register:hover {
+    color: #ffffff; /* 文字顏色變為白色 */
+    text-decoration: underline; /* 添加下劃線 */
+    transform: scale(1.05); /* 輕微的放大效果 */
+}
+
+a#show-login {
+    font-weight: bold;
+    color: rgb(158, 155, 155);
+    text-decoration: none;
+    border-radius: 5px; /* 圓角效果 */
+    transition: background-color 0.3s, color 0.3s; /* 這將為顏色變化添加一個平滑的過渡效果 */
+
+}
+
+/* 滑鼠懸停時的樣式 */
+a#show-login:hover {
+    color: #ffffff; /* 文字顏色變為白色 */
+    text-decoration: underline; /* 添加下劃線 */
+    transform: scale(1.05); /* 輕微的放大效果 */
+}
+
+input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #7eaed0;
+    font-weight: bold;
+}
+
+p{
+    color: #7eaed0;
+    font-weight: bold;
+}
+
+
+.login-container {
+    max-width: 1200px;  /* Increase the width from 800px to 1200px */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.imbtn{
+    border: 2px solid #7eaed0;
+    background-color: #323f6b00;
+    border-radius: 8px;
+    color: #7eaed0;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.imbtn:hover{
+    background-color: #7eaed0;
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between; /* 將按鈕和鏈接分開 */
+    align-items: center; /* 垂直居中對齊 */
+    margin-top: 20px; /* 與上面的輸入框保持一定的距離 */
+}
+
+.action-buttons .imbtn {
+    flex-grow: 1; /* 允許按鈕在需要時擴展 */
+    margin-right: 10px; /* 與鏈接之間的間距 */
+}
+
+.action-buttons a {
+    flex-shrink: 0; /* 防止鏈接在需要時縮小 */
+}
+
+
+.panes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;  /* Allows the panes to wrap if the content is too much */ 
+    gap: 6px;  /* Create space between panes */
+    width: 1000px;
+    font-weight: bold;
+}
+
+.pane {
+    flex: 1;
+    padding: 20px;  /* Increase the padding from 10px to 20px */
+    margin: 20px;   /* Increase the margin from 10px to 20px */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    min-height: 400px; /* Set a minimum height for each pane */
+    overflow-y: auto;
+    flex-basis: 10%;  /* Set a base width for each pane, and allowing for the gap */
+}
+
+.task-card {
+    position: relative;
+    display: flex;  /* 新增：使內容和按鈕水平排列 */
+    justify-content: space-between;  /* 新增：內容和按鈕之間的空間最大化 */
+    align-items: center;  /* 新增：垂直居中內容和按鈕 */
+    padding: 10px 15px;  /* 內邊距使內容不會靠近邊緣 */
+    margin: 10px 0;  /* 外邊距給予每個卡片一些間距 */
+    border-radius: 8px;  /* 圓角 */
+    background-color: #ffffff;  /* 白色背景 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 陰影效果 */
+    cursor: pointer;  /* 當鼠標懸停時顯示手指標標誌 */
+    transition: background-color 0.3s;  /* 漸變效果 */
+}
+
+.task-card:hover {
+    background-color: #f5f5f5;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    padding: 5px 10px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px;
+}
+
+.modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    padding: 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #555;
+}
+
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+
+/* 新增：任務內容的樣式 */
+.task-content {
+    flex: 1;  /* 使內容佔用可用空間的大部分 */
+    margin-right: 10px;  /* 與編輯按鈕之間的間距 */
+}
+
+.more-options {
+    width: 4px;
+    height: 4px;
+    background-color: #333;  /* 點的顏色 */
+    border-radius: 50%;  /* 使其成為圓形 */
+    position: relative;  /* 使偽元素可以相對於此元素定位 */
+    cursor: pointer;  /* 手指標標誌 */
+    display: inline-block;  /* 使元素在一行上 */
+    margin: 0 8px;  /* 點與點之間的間距 */
+}
+
+.more-options::before, .more-options::after {
+    content: "";  /* 偽元素的內容 */
+    width: 4px;
+    height: 4px;
+    background-color: #333;  /* 點的顏色 */
+    border-radius: 50%;  /* 使其成為圓形 */
+    position: absolute;  /* 絕對定位 */
+    top: 0;  /* 與主元素對齊 */
+}
+
+.more-options::before {
+    left: -8px;  /* 在主元素左側 */
+}
+
+.more-options::after {
+    right: -8px;  /* 在主元素右側 */
+}
+
+.more-options, .more-options::before, .more-options::after {
+    background-color: currentColor;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+
+.task-card input {
+    width: 100%;  
+    border: none;  
+    background-color: transparent; 
+    outline: none;  
+    /* 你可以根據需要添加其他樣式 */
+}
+
+
+.tasks-table {
+    display: none;
+    margin-top: 150px;
+    width: 90%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    border-radius: 5px;
+}
+
+.tasks-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tasks-table th, .tasks-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tasks-table th {
+    background-color: #f5f5f5;
+    color: #555;
+    font-weight: bold;
+}
+
+.tasks-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.tasks-table tbody tr:last-child td {
+    border-bottom: none;  /* Remove border for the last row */
+}
+
+
+.status-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.edit {
+    background-color: #e6555a; /* 代表待編輯的黃色 */
+}
+
+.vetting {
+    background-color: #f4c700; /* 代表主管審核中的橙色 */
+}
+
+.checklist {
+    background-color: #6a9cb9; /* 代表法尊審核中的藍色 */
+}
+
+.posting {
+    background-color: #5EAA5F; /* 代表已公告的綠色 */
+}
+
+.impic{
+    transition: all 0.3s ease-in-out;
+}
+
+.impic:hover{
+    transform: scale(1.1);
+}
+
+.tasks-table tbody tr {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tasks-table tbody tr:hover {
+    background-color: #dedddd;
+}
+
+
+.introjs-tooltip {
+    background-color: #3a3a3a; /* 背景顏色 */
+    border-color: #fff; /* 邊框顏色 */
+}
+
+
+.introjs-tooltip {
+    color: #fff; /* 文字顏色 */
+}
+
+
+.introjs-button {
+    background-color: #008CBA; /* 背景顏色 */
+    color: #fff; /* 文字顏色 */
+    border: none; /* 移除邊框 */
+    padding: 10px 20px; /* 內間距 */
+    border-radius: 5px; /* 圓角 */
+}
+
+
+.introjs-progressbar {
+    background-color: #008CBA; /* 背景顏色 */
+}

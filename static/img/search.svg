@@ -1,0 +1,12 @@
+<svg width="37" height="32" viewBox="0 0 37 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1">
+<path id="Rectangle 4" d="M3 1.5H25C25.8284 1.5 26.5 2.17157 26.5 3V6.67029L26.143 6.59889C22.3342 5.83713 18.524 7.90108 17.0815 11.5075L17.0399 11.6115C16.2982 13.4657 16.2982 15.5343 17.0399 17.3885C18.5015 21.0427 22.4625 23.0291 26.2652 22.015L26.5 21.9524V29C26.5 29.8284 25.8284 30.5 25 30.5H3C2.17157 30.5 1.5 29.8284 1.5 29V3C1.5 2.17157 2.17157 1.5 3 1.5Z" stroke="white" stroke-width="3"/>
+<line id="Line 2" x1="6" y1="8.5" x2="19" y2="8.5" stroke="white" stroke-width="3"/>
+<line id="Line 3" x1="6" y1="22.5" x2="22" y2="22.5" stroke="white" stroke-width="3"/>
+<line id="Line 4" x1="6" y1="15.5" x2="18" y2="15.5" stroke="white" stroke-width="3"/>
+<g id="search">
+<circle id="Ellipse 1" cx="24.3649" cy="14.3649" r="7.86487" stroke="white" stroke-width="3"/>
+<line id="Line 1" x1="29.2851" y1="20.6024" x2="35.231" y2="29.1429" stroke="white" stroke-width="3"/>
+</g>
+</g>
+</svg>

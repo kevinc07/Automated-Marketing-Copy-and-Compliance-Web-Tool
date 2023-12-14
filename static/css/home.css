@@ -1,0 +1,259 @@
+body{
+    font-family: "Noto Sans","Microsoft JhengHei";
+	margin: 0;
+	padding: 0;
+  }
+
+.imtoolbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	font-size: 20px;
+	background: linear-gradient(150deg, #323F6B,  #78a7fe);
+	color: #FFFFFF;
+	text-align: center;
+	padding: 10px;
+	z-index: 99;
+}
+
+
+.input-container{
+	width: 250px;
+}
+
+/*
+#134098
+#133698
+#7484C1
+#B0C0E3
+*/
+/*
+深藍色1	#1A2D4E
+深藍色2 	#323F6B
+亮藍色1     #A4EEF9
+淺藍色1 	#B7DBFD
+藍色        #3581F9 
+*/
+
+.wraper{
+	width: 500px;
+	margin:10px auto;
+}
+
+ul, li{
+    list-style-type: none;
+}
+
+ul{
+	padding-inline-start: 0;
+	text-align: center;
+}
+
+p{
+	font-size: 15px;
+	font-weight:500;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.cart>li>a{
+	border:1px solid #323F6B;	
+	border-radius: 30px;
+	color:#323F6B;
+	font-weight:600;
+	font-size: 20px;
+	padding: 10px;
+	text-align: center;
+}
+
+.cart>li>a:hover,.cart>li>a.active{
+	border:1px solid #78a7fe;	
+	background-color:  #78a7fe;
+	color:#FFFFFF;
+}
+
+.cart a{
+	display: block;
+	text-decoration: none;	
+}
+
+.cart ul{
+	display: none;
+}
+
+.cart ul li{
+	margin:10px;
+}
+
+.cart ul li a{
+	color:#5746B0;
+}
+
+.cart{
+    margin: auto;
+    margin-top: 200px;
+}
+
+/*展開式裡的div*/
+.impretty{
+	display: flex;
+	justify-content: space-between;
+}
+
+button{
+	width: 120px;
+	height: 20px;
+	border-radius: 30px;
+	border: 1px solid #8f8f8f;
+	background: rgba(0,151,167,0);
+	background-blend-mode: normal;
+	color: #8f8f8f;
+}
+
+button:hover{
+	width: 120px;
+	height: 20px;
+	border-radius: 30px;
+	border: 1px solid #8f8f8f;
+	background: rgb(112, 113, 113);
+	background-blend-mode: normal;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.iminput{
+	color: #5746B0;
+	border: 1px solid #5746B0;
+	outline: none;
+	height: 25px;
+	padding: 2px;
+	width: 250px;
+	font-family: Arial, sans-serif; /* 將字體設為 Arial */
+    font-size: 16px; /* 將字體大小設為 16px */
+}
+
+.imanotherinput{
+	color: #5746B0;
+	border: 1px solid #5746B0;
+	outline: none;
+	font-family: Arial, sans-serif; /* 將字體設為 Arial */
+    font-size: 16px; /* 將字體大小設為 16px */
+}
+
+.imtheBigBtn{
+	width: 150px;
+	height: 40px;
+	border-radius: 30px;
+	border: none;
+	background-color: #323F6B;
+	background-blend-mode: normal;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+	transition: background-color 0.3s;
+	margin: auto;
+}
+
+.imtheBigBtn:hover{
+	width: 150px;
+	height: 40px;
+	background-color: #78a7fe;
+	border: none;
+    color: white;
+	cursor: pointer;
+}
+
+
+/*匯入選單*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+	z-index: 99; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Slightly darker black w/ opacity */
+}
+  
+  	/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Adjusted for better responsiveness */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adding shadow for depth */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+table {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full width of its parent */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+
+th, td {
+    border: 1px solid #323F6B;
+    padding: 10px;
+    text-align: left; /* Align text to left */
+}
+
+
+
+thead {
+    background-color: #323F6B;
+    color: white;
+}
+
+
+.click:hover {
+    color: #d9534f; /* Changing hover color */
+    text-decoration: underline;
+    cursor: pointer;
+}
+ 
+
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.imselect{
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+
+
+/* Responsive table */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 80%; /* Increasing width for smaller screens */
+    }
+
+    th, td {
+        padding: 8px; /* Reducing padding for smaller screens */
+    }
+}
