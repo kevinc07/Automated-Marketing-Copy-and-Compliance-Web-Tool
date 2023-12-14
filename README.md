@@ -20,25 +20,25 @@ The Automated Marketing Copy and Compliance Web Tool is a sophisticated and inno
 ### Begin Interacting with the Pages
 #### Demo
 #### Login and registration user interface
-![範例圖片](images/圖片1)
+![範例圖片](images/圖片1.png)
 #### The content can be placed in four sections, including 'Pending Editing,' 'Under Managerial Review,' 'Under Legal Compliance Review,' and 'Announced'.
-![範例圖片](images/圖片2)
+![範例圖片](images/圖片2.png)
 #### When creating a new project, start by entering the target clients and its relevant information
-![範例圖片](images/圖片3)
+![範例圖片](images/圖片3.png)
 #### Next, enter product information, including product name, product features, event details, promotional offers, and more.
-![範例圖片](images/圖片4)
+![範例圖片](images/圖片4.png)
 #### On this page, you can input options for Marketing Copy style, main message, proposal framework, copy presentation style, and keywords.
-![範例圖片](images/圖片5)
+![範例圖片](images/圖片5.png)
 #### The Marketing Copy is completed in 3 to 4 steps
-![範例圖片](images/圖片6)
-![範例圖片](images/圖片7)
+![範例圖片](images/圖片6.png)
+![範例圖片](images/圖片7.png)
 #### For compliance, you can upload the Marketing copy, supporting documents, select different business categories, and proceed with the review.
-![範例圖片](images/圖片8)
+![範例圖片](images/圖片8.png)
 #### In the preview result, you can see the number of checklist items for each project, as well as the items that are compliant and non-compliant.
-![範例圖片](images/圖片9)
+![範例圖片](images/圖片9.png)
 #### In the details section, it will highlight specific areas where the marketing copy does not comply with regulations.
-![範例圖片](images/圖片10)
+![範例圖片](images/圖片10.png)
 #### Complete the comprehensive marketing approval form for the bank.
-![範例圖片](images/圖片11)
-![範例圖片](images/圖片12)
-![範例圖片](images/圖片13)
+![範例圖片](images/圖片11.png)
+![範例圖片](images/圖片12.png)
+![範例圖片](images/圖片13.png)
